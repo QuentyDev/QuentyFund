@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">QuentyFund</string>
+
+    <!--Settings-->
+    <string name="facebook_id">744878065617630</string>
+    <!--<string name="gplus_id">844991406801-psilhe0c6rqgp1urvjnkp22eusthirli.apps.googleusercontent.com</string>-->
+    <string name="gplus_id">844991406801-ru1as1is79um9357ovpc4im3afkaa4o1.apps.googleusercontent.com</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="step_title_one">Registro</string>
+    <string name="step_message_one">El primer paso que se debe dar es el registro, para poder comunicarnos contigo cuando se pueda.</string>
+    <string name="step_title_two">Conectate</string>
+    <string name="step_message_two">El conectarse con mas personas en el mundo ampliara tus opciones de ayudar o ser ayudado</string>
+    <string name="step_title_three">Recibir</string>
+    <string name="step_message_three">Recibe donaciones de las personas que esten interesado en apoyar tu idea, Es hora de convencer a los empresarios.</string>
+    <string name="step_title_four">Dar</string>
+    <string name="step_message_four">Ayuda a los demas donando, el grano de arena que aportes sera muy importante para un nuevo emprendimiento.</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_uisplash">UISplashActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_uiapp_intro">UIAppIntroActivity</string>
+    <string name="title_activity_uiwelcome">UIWelcomeActivity</string>
+</resources>
