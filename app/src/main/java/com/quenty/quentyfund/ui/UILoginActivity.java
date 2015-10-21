@@ -97,7 +97,7 @@ public class UILoginActivity extends AppCompatActivity implements
 
                             String id = object.getString("id");
                             String personName = object.getString("name");
-
+                            System.out.println(personName+"AQUI entro");
 //                            User user = new User();
 //                            user.setId(0L);
 //                            user.setGcm_id(id);
@@ -130,12 +130,12 @@ public class UILoginActivity extends AppCompatActivity implements
         });
 
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginManager.getInstance().logInWithReadPermissions(UILoginActivity.this, Arrays.asList("public_profile, email, user_birthday, user_friends"));
-            }
-        });
+//        loginButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                LoginManager.getInstance().logInWithReadPermissions(UILoginActivity.this, Arrays.asList("public_profile, email, user_birthday, user_friends"));
+//            }
+//        });
 
 
         SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);

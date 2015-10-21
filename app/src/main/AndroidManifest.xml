@@ -15,9 +15,12 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_id" />
-        <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/gplus_id" />
-        <meta-data android:name="com.google.android.gms.appstate.APP_ID" android:value="@string/gplus_id" />
-
+        <meta-data
+            android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/gplus_id" />
+        <meta-data
+            android:name="com.google.android.gms.appstate.APP_ID"
+            android:value="@string/gplus_id" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -45,6 +48,8 @@
         <activity
             android:name=".ui.UIWelcomeActivity"
             android:label="@string/title_activity_uiwelcome" >
+        </activity>
+        <activity android:name=".ui.UIMainActivity" >
         </activity>
     </application>
 
