@@ -62,7 +62,12 @@ public class UILoginActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
-
+        BLLUser bllUser = new BLLUser(getBaseContext());
+        User user = bllUser.get();
+        if (!user.getFirstName().equals("")) {
+            startActivity(new Intent(UILoginActivity.this, UIMainActivity.class));
+            this.finish();
+        }
         plusClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -97,7 +102,7 @@ public class UILoginActivity extends AppCompatActivity implements
 
                             String id = object.getString("id");
                             String personName = object.getString("name");
-                            System.out.println(personName+"AQUI entro");
+                            System.out.println(personName + "AQUI entro");
 //                            User user = new User();
 //                            user.setId(0L);
 //                            user.setGcm_id(id);
