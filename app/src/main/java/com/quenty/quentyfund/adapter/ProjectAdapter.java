@@ -89,7 +89,11 @@ private Context context;
     private Proyecto[] generateNotes(Context context, int numNotes) {
         Proyecto[] notes = new Proyecto[numNotes];
         for (int i = 0; i < notes.length; i++) {
-            notes[i] =new  Proyecto(i,"Nombre "+i,"Descripcion "+i,(i+1)*1000,(i+1)*10,R.drawable.ic_quenty);
+            String descr="";
+            for(int j=0;j<i;j++) {
+                 descr +="Descripcion ";
+            }
+            notes[i] =new  Proyecto(i,"Nombre "+i,descr,(i+1)*1000,(i+1)*10,R.drawable.ic_quenty);
         }
         return notes;
     }

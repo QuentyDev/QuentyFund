@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -17,9 +18,12 @@ public class UIMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uimain);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        setSupportActionBar(toolbar);
         Fragment newFragment = new MainFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.add(R.id.frame_main, newFragment).commit();
+
     }
 
     @Override
@@ -43,6 +47,9 @@ public class UIMainActivity extends AppCompatActivity {
                 break;
             case R.id.action_settings:
 
+                break;
+            case R.id.action_help_intro:
+                startActivity(new Intent(UIMainActivity.this, UIAppIntroActivity.class));
                 break;
 
         }

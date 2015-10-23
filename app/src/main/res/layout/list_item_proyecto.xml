@@ -12,41 +12,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/note_info_image"
+            android:src="@drawable/ic_quenty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_alignParentTop="true" />
+
         <TextView
             android:id="@+id/note_title"
             android:text="Titulo"
-            android:layout_alignParentTop="true"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:id="@+id/note_text"
             android:text="Descripcion"
-            android:layout_below="@id/note_title"
-            android:paddingTop="@dimen/note_content_spacing"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/note_info_image" />
 
 
 
             <TextView
                 android:id="@+id/note_info"
                 android:text="Precio"
+                android:textStyle="bold"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/note_text"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
-
-            <ImageView
-                android:id="@+id/note_info_image"
-                android:src="@drawable/ic_quenty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                android:adjustViewBounds="true"
-                android:layout_below="@+id/note_text"
-                android:layout_alignParentBottom="true" />
 
     </RelativeLayout>
 
