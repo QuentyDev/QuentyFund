@@ -51,6 +51,10 @@
         </activity>
         <activity android:name=".ui.UIMainActivity" >
         </activity>
+        <activity android:name=".ui.UIDetalleProyectoActivity" >
+        </activity>
+        <activity android:name=".ui.UIPerfilUsuarioActivity" >
+        </activity>
     </application>
 
 </manifest>

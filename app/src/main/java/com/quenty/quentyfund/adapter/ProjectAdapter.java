@@ -1,6 +1,7 @@
 package com.quenty.quentyfund.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.quenty.quentyfund.R;
 import com.quenty.quentyfund.entity.Proyecto;
+import com.quenty.quentyfund.ui.UIDetalleProyectoActivity;
 
 /**
  * Created by DavorLimachi on 10/21/15.
@@ -22,9 +24,10 @@ import com.quenty.quentyfund.entity.Proyecto;
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHolder> {
 
     private Proyecto[] notes;
-
+private Context context;
     public ProjectAdapter(Context context, int numNotes) {
         notes = generateNotes(context, numNotes);
+        this.context=context;
     }
 
     @Override
@@ -37,9 +40,9 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Proyecto proyectoModel = notes[position];
-        String nombre = proyectoModel.getNombre();
-        String descripcion = proyectoModel.getDescripcion();
-        String info = String.valueOf(proyectoModel.getMonto());
+        final String nombre = proyectoModel.getNombre();
+        final String descripcion = proyectoModel.getDescripcion();
+        final String info = String.valueOf(proyectoModel.getMonto());
         int infoImage = proyectoModel.getCategoriaID();
         ColorGenerator generator = ColorGenerator.MATERIAL; // or use DEFAULT
 // generate random color
@@ -68,6 +71,14 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
 
         // Set background color
         ((CardView) holder.itemView).setCardBackgroundColor(color);
+        ((CardView) holder.itemView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("Click"+nombre);
+
+                context.startActivity(new Intent(context, UIDetalleProyectoActivity.class));
+            }
+        });
     }
 
     @Override
