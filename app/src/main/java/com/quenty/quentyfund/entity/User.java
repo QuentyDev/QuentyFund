@@ -4,9 +4,39 @@ package com.quenty.quentyfund.entity;
  * Created by DavorLimachi on 10/7/15.
  */
 public class User {
+
+    private int id;
     private String firstName;
     private String email;
     private String lastName;
+    private String telefono;
+    private String direccion;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
 
     public String getFirstName() {
         return firstName;
@@ -31,8 +61,6 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-
 
 
 }

@@ -19,6 +19,9 @@ public class Proyecto {
         this.diasVigencia = diasVigencia;
         this.categoriaID = categoriaID;
     }
+    public Proyecto() {
+        this.proyectoID = -1;
+    }
 
     public int getCategoriaID() {
         return categoriaID;
