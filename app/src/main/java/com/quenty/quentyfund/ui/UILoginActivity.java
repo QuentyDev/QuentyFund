@@ -64,7 +64,7 @@ public class UILoginActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_login);
         BLLUser bllUser = new BLLUser(getBaseContext());
         User user = bllUser.get();
-        if (!user.getFirstName().equals("")) {
+        if (user!=null && user.getFirstName()!=null &&!user.getFirstName().equals("")) {
             startActivity(new Intent(UILoginActivity.this, UIMainActivity.class));
             this.finish();
         }
