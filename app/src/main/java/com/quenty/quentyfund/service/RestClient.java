@@ -17,7 +17,7 @@ import retrofit.http.POST;
 public class RestClient {
 
     private static QuentyApiInterface quentyApiInterface;
-    private static String baseUrl = "http://192.168.43.230:8086/" ;
+    private static String baseUrl = "http://192.168.1.236:8086/" ;
 
 
     public static QuentyApiInterface getDGMClient() {
@@ -48,7 +48,7 @@ public class RestClient {
         @POST("quentyfund/v1/register")
         Call<Message> register(@Field("name") String name, @Field("email") String email, @Field("password") String password);
 
-        @GET("quentyfund/v1/projects")
+        @GET("hwslim/projects")
         Call<Message> getAllProjects();
     }
 }

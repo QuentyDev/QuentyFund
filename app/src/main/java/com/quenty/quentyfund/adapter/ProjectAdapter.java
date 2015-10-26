@@ -24,7 +24,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
     private Proyecto[] notes;
     private Context context;
 
-    public ProjectAdapter(Context context, int numNotes,Proyecto[] proyectos) {
+    public ProjectAdapter(Context context,Proyecto[] proyectos) {
 //        notes = generateNotes(context, numNotes);
         this.notes=proyectos;
         this.context=context;

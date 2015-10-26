@@ -53,8 +53,6 @@ public class MainFragment extends Fragment {
         RestClient.QuentyApiInterface service = RestClient.getDGMClient();
         Call<Message> call = service.getAllProjects();
         call.enqueue(new Callback<Message>() {
-
-
             @Override
             public void onResponse(Response<Message> response, Retrofit retrofit) {
                 dialog.dismiss();
@@ -76,7 +74,8 @@ public class MainFragment extends Fragment {
             }
         });
 
-        recyclerView.setAdapter(new ProjectAdapter(getActivity(), 30));
+//        recyclerView.setAdapter(new ProjectAdapter(getActivity(), 30));
+        recyclerView.setAdapter(new ProjectAdapter(getActivity(), proyectos));
 
 
 

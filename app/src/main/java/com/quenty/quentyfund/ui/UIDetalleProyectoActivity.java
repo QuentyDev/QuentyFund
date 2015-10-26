@@ -51,7 +51,7 @@ public class UIDetalleProyectoActivity extends AppCompatActivity {
             etDescripcion.setText(proyecto.getDescripcionLarga());
             etMonto.setText(proyecto.getMonto());
             etDiasVigencia.setText(proyecto.getDiasVigencia());
-            spCategoria.setSelection(proyecto.getCategoria());
+//            spCategoria.setSelection(proyecto.getCategoria());
 
         }
     }
