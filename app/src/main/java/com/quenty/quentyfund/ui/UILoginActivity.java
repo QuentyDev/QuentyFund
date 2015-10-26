@@ -99,6 +99,7 @@ public class UILoginActivity extends AppCompatActivity implements
 //        loginButton.setPublishPermissions(permissions);
         loginButton.setReadPermissions(permissions);
 
+
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
