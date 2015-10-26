@@ -2,7 +2,6 @@ package com.quenty.quentyfund.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -10,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.util.ColorGenerator;
@@ -24,9 +22,16 @@ import com.quenty.quentyfund.ui.UIDetalleProyectoActivity;
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHolder> {
 
     private Proyecto[] notes;
-private Context context;
+    private Context context;
+
+    public ProjectAdapter(Context context, int numNotes,Proyecto[] proyectos) {
+//        notes = generateNotes(context, numNotes);
+        this.notes=proyectos;
+        this.context=context;
+    }
+
     public ProjectAdapter(Context context, int numNotes) {
-        notes = generateNotes(context, numNotes);
+//        notes = generateNotes(context, numNotes);
         this.context=context;
     }
 
@@ -41,9 +46,9 @@ private Context context;
     public void onBindViewHolder(ViewHolder holder, int position) {
         Proyecto proyectoModel = notes[position];
         final String nombre = proyectoModel.getNombre();
-        final String descripcion = proyectoModel.getDescripcion();
+        final String descripcion = proyectoModel.getDescripcionCorta();
         final String info = String.valueOf(proyectoModel.getMonto());
-        int infoImage = proyectoModel.getCategoriaID();
+        String infoImage = proyectoModel.getCategoria();
         ColorGenerator generator = ColorGenerator.MATERIAL; // or use DEFAULT
 // generate random color
         int color = generator.getRandomColor();
@@ -55,7 +60,7 @@ private Context context;
         holder.infoTextView.setText(info);
 
         // Set image
-        holder.infoImageView.setImageResource(infoImage);
+        holder.infoImageView.setImageResource(R.drawable.ic_quenty);
 
         // Set visibilities
         holder.titleTextView.setVisibility(TextUtils.isEmpty(nombre) ? View.GONE : View.VISIBLE);
@@ -93,7 +98,7 @@ private Context context;
             for(int j=0;j<i;j++) {
                  descr +="Descripcion ";
             }
-            notes[i] =new  Proyecto(i,"Nombre "+i,descr,(i+1)*1000,(i+1)*10,R.drawable.ic_quenty);
+            notes[i] =new  Proyecto(i,"Nombre "+i,descr,(i+1)*1000,(i+1)*10,"");
         }
         return notes;
     }

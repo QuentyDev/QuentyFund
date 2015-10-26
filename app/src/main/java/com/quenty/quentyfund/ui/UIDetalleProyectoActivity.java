@@ -1,6 +1,5 @@
 package com.quenty.quentyfund.ui;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -49,10 +48,10 @@ public class UIDetalleProyectoActivity extends AppCompatActivity {
 //            Cargar datos del proyecto
 
             etNombre.setText(proyecto.getNombre());
-            etDescripcion.setText(proyecto.getDescripcion());
+            etDescripcion.setText(proyecto.getDescripcionLarga());
             etMonto.setText(proyecto.getMonto());
             etDiasVigencia.setText(proyecto.getDiasVigencia());
-            spCategoria.setSelection(proyecto.getCategoriaID());
+            spCategoria.setSelection(proyecto.getCategoria());
 
         }
     }

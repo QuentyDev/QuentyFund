@@ -6,29 +6,33 @@ package com.quenty.quentyfund.entity;
 public class Proyecto {
     private int proyectoID;
     private String nombre;
-    private String descripcion;
+    private String descripcionLarga;
+    private String descripcionCorta;
     private int monto;
     private int diasVigencia;
-    private int categoriaID;
+    private String categoria;
+    private String ciudad;
+    private String estado;
+    private String urlImage;
 
-    public Proyecto(int proyectoID, String nombre, String descripcion, int monto, int diasVigencia, int categoriaID) {
+    public Proyecto(int proyectoID, String nombre, String descripcion, int monto, int diasVigencia, String categoria) {
         this.proyectoID = proyectoID;
         this.nombre = nombre;
-        this.descripcion = descripcion;
+        this.descripcionLarga = descripcion;
         this.monto = monto;
         this.diasVigencia = diasVigencia;
-        this.categoriaID = categoriaID;
+        this.categoria = categoria;
     }
     public Proyecto() {
         this.proyectoID = -1;
     }
 
-    public int getCategoriaID() {
-        return categoriaID;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setCategoriaID(int categoriaID) {
-        this.categoriaID = categoriaID;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public int getDiasVigencia() {
@@ -47,12 +51,12 @@ public class Proyecto {
         this.monto = monto;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcionLarga() {
+        return descripcionLarga;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcionLarga(String descripcionLarga) {
+        this.descripcionLarga = descripcionLarga;
     }
 
     public String getNombre() {
@@ -71,8 +75,34 @@ public class Proyecto {
         this.proyectoID = proyectoID;
     }
 
+    public String getDescripcionCorta() {
+        return descripcionCorta;
+    }
 
+    public void setDescripcionCorta(String descripcionCorta) {
+        this.descripcionCorta = descripcionCorta;
+    }
+    public String getEstado() {
+        return estado;
+    }
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
+    public String getCiudad() {
+        return ciudad;
+    }
 
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
 }
