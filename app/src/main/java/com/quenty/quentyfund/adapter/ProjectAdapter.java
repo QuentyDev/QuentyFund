@@ -12,9 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.util.ColorGenerator;
+import com.google.gson.Gson;
 import com.quenty.quentyfund.R;
 import com.quenty.quentyfund.entity.Proyecto;
 import com.quenty.quentyfund.ui.UIDetalleProyectoActivity;
+import com.quenty.quentyfund.ui.UIViewProjectActivity;
 
 /**
  * Created by DavorLimachi on 10/21/15.
@@ -24,15 +26,15 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
     private Proyecto[] notes;
     private Context context;
 
-    public ProjectAdapter(Context context,Proyecto[] proyectos) {
+    public ProjectAdapter(Context context, Proyecto[] proyectos) {
 //        notes = generateNotes(context, numNotes);
-        this.notes=proyectos;
-        this.context=context;
+        this.notes = proyectos;
+        this.context = context;
     }
 
     public ProjectAdapter(Context context, int numNotes) {
 //        notes = generateNotes(context, numNotes);
-        this.context=context;
+        this.context = context;
     }
 
     @Override
@@ -44,9 +46,9 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Proyecto proyectoModel = notes[position];
+        final Proyecto proyectoModel = notes[position];
         final String nombre = proyectoModel.getNombre();
-        final String descripcion = proyectoModel.getDescripcionCorta();
+        final String descripcion = proyectoModel.getDescripcionLarga();
         final String info = String.valueOf(proyectoModel.getMonto());
         String infoImage = proyectoModel.getCategoria();
         ColorGenerator generator = ColorGenerator.MATERIAL; // or use DEFAULT
@@ -58,6 +60,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
         holder.titleTextView.setText(nombre);
         holder.noteTextView.setText(descripcion);
         holder.infoTextView.setText(info);
+        holder.categoriaTextView.setText(proyectoModel.getCategoria());
 
         // Set image
         holder.infoImageView.setImageResource(R.drawable.ic_quenty);
@@ -79,9 +82,11 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
         ((CardView) holder.itemView).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Click"+nombre);
-
-                context.startActivity(new Intent(context, UIDetalleProyectoActivity.class));
+                System.out.println("Click" + nombre);
+                Intent intent = new Intent(context, UIViewProjectActivity.class);
+                Gson gson=new Gson();
+                intent.putExtra("project",gson.toJson(proyectoModel));
+                context.startActivity(intent);
             }
         });
     }
@@ -94,11 +99,11 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
     private Proyecto[] generateNotes(Context context, int numNotes) {
         Proyecto[] notes = new Proyecto[numNotes];
         for (int i = 0; i < notes.length; i++) {
-            String descr="";
-            for(int j=0;j<i;j++) {
-                 descr +="Descripcion ";
+            String descr = "";
+            for (int j = 0; j < i; j++) {
+                descr += "Descripcion ";
             }
-            notes[i] =new  Proyecto(i,"Nombre "+i,descr,(i+1)*1000,(i+1)*10,"");
+            notes[i] = new Proyecto(i, "Nombre " + i, descr, (i + 1) * 1000, (i + 1) * 10, "");
         }
         return notes;
     }
@@ -107,7 +112,8 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
 
         public TextView titleTextView;
         public TextView noteTextView;
-//        public LinearLayout infoLayout;
+        public TextView categoriaTextView;
+        //        public LinearLayout infoLayout;
         public TextView infoTextView;
         public ImageView infoImageView;
 
@@ -115,6 +121,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
             super(itemView);
             titleTextView = (TextView) itemView.findViewById(R.id.note_title);
             noteTextView = (TextView) itemView.findViewById(R.id.note_text);
+            categoriaTextView = (TextView) itemView.findViewById(R.id.tvCategoria);
 //            infoLayout = (LinearLayout) itemView.findViewById(R.id.note_info_layout);
             infoTextView = (TextView) itemView.findViewById(R.id.note_info);
             infoImageView = (ImageView) itemView.findViewById(R.id.note_info_image);

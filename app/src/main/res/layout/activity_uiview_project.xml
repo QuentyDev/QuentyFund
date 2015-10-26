@@ -45,95 +45,37 @@
             android:layout_below="@+id/imageView3"
             android:layout_centerHorizontal="true" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:textAlignment="center"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/etNombreProyecto"
-            android:layout_below="@+id/tvNombre"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Descripcion"
             android:id="@+id/tvDescripcion"
-            android:layout_below="@+id/etNombreProyecto"
-            android:layout_centerHorizontal="true" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:id="@+id/etDescripcion"
-            android:layout_below="@+id/tvDescripcion"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tvNombre" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Monto"
             android:id="@+id/tvMonto"
-            android:layout_below="@+id/etDescripcion"
-            android:layout_centerHorizontal="true" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
-            android:id="@+id/etMonto"
-            android:layout_below="@+id/tvMonto"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tvDescripcion" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dias de vigencia"
             android:id="@+id/tvDiasVigencia"
-            android:layout_below="@+id/etMonto"
-            android:layout_centerHorizontal="true" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="numberSigned"
-            android:ems="10"
-            android:id="@+id/etDiasVigencia"
-            android:layout_below="@+id/tvDiasVigencia"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tvMonto" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Categoria"
             android:id="@+id/tvCategoria"
-            android:layout_below="@+id/etDiasVigencia"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tvDiasVigencia" />
 
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/spCategoria"
-            android:layout_below="@+id/tvCategoria"
-            android:layout_centerHorizontal="true" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Guardar"
-            android:id="@+id/btnGuardar"
-            android:layout_below="@+id/spCategoria"
-            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 </ScrollView>

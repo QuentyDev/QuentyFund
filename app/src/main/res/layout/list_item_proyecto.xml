@@ -23,24 +23,13 @@
             android:layout_alignParentTop="true" />
 
         <TextView
-            android:id="@+id/note_title"
-            android:text="Titulo"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-        <TextView
             android:id="@+id/note_text"
             android:text="Descripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tvCategoria"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/note_info_image" />
+            android:layout_alignParentStart="true" />
 
 
 
@@ -53,6 +42,25 @@
                 android:layout_below="@+id/note_text"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/note_title"
+            android:text="Titulo"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/note_info_image"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria"
+            android:id="@+id/tvCategoria"
+            android:layout_below="@+id/note_title"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 

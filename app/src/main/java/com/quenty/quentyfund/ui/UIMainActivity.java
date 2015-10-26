@@ -22,7 +22,7 @@ public class UIMainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Fragment newFragment = new MainFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.frame_main, newFragment).commit();
+        ft.replace(R.id.frame_main, newFragment).commit();
 
     }
 

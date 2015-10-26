@@ -60,12 +60,13 @@ public class MainFragment extends Fragment {
                 Log.d("MainActivity", "Status Code = " + response.code());
                 if (response.isSuccess()) {
                     Message result = response.body();
-                    Gson gson = new Gson();
-                    Type type = new TypeToken<Proyecto[]>() {
-                    }.getType();
-                    System.out.println(result.getMessage());
-                    proyectos = gson.fromJson(result.getMessage(), type);
-//                    recyclerView.setAdapter(new ProjectAdapter(getActivity(), proyectos));
+//                    Gson gson = new Gson();
+//                    Type type = new TypeToken<Proyecto[]>() {
+//                    }.getType();
+//                    System.out.println(result.getMessage());
+//                    proyectos = gson.fromJson(result.getMessage(), type);
+                    proyectos = result.getMessage();
+                    recyclerView.setAdapter(new ProjectAdapter(getActivity(), proyectos));
                     Log.d("MainActivity", "response = " + new Gson().toJson(result));
                 } else {
                     Log.e("MainFragment", "Se ha producido un error");
