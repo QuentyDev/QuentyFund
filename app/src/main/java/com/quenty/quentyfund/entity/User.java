@@ -11,6 +11,28 @@ public class User {
     private String lastName;
     private String telefono;
     private String direccion;
+    private String socialId;
+
+
+    public User() {
+        this.id = -1;
+        this.firstName = "";
+        this.email = "";
+        this.lastName = "";
+        this.telefono = "";
+        this.direccion = "";
+        this.socialId = "";
+    }
+
+    public String getSocialId() {
+        return socialId;
+    }
+
+    public void setSocialId(String socialId) {
+        this.socialId = socialId;
+    }
+
+
 
 
     public int getId() {
