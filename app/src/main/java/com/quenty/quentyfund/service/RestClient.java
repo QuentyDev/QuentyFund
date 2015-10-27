@@ -46,9 +46,16 @@ public class RestClient {
 
         @FormUrlEncoded
         @POST("quentyfund/v1/register")
-        Call<Message> register(@Field("name") String name, @Field("email") String email, @Field("password") String password);
+        Call<Message> registerTest(@Field("name") String name, @Field("email") String email, @Field("password") String password);
 
         @GET("hwslim/projects")
-        Call<Message> getAllProjects();
+        Call<Message> getAllProjectsTest();
+
+        /*TODO
+         */
+        @GET("hwslim/projects")
+        Call<MessageProyecto> getAllProjects();
+
+
     }
 }

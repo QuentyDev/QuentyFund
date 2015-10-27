@@ -48,7 +48,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Proyecto proyectoModel = notes[position];
         final String nombre = proyectoModel.getNombre();
-        final String descripcion = proyectoModel.getDescripcionLarga();
+        final String descripcion = proyectoModel.getDescripcionCorta();
         final String info = String.valueOf(proyectoModel.getMonto());
         String infoImage = proyectoModel.getCategoria();
         ColorGenerator generator = ColorGenerator.MATERIAL; // or use DEFAULT
