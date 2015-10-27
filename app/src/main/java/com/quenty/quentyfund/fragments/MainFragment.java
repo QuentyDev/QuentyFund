@@ -2,6 +2,7 @@ package com.quenty.quentyfund.fragments;
 
 
 import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -34,7 +35,7 @@ import retrofit.Retrofit;
 public class MainFragment extends Fragment {
 
     private Proyecto[] proyectos;
-
+    RecyclerView recyclerView;
     public MainFragment() {
         // Required empty public constructor
     }
@@ -45,7 +46,7 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_blank, container, false);
 
         // Setup list
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.notes_list);
+         recyclerView = (RecyclerView) view.findViewById(R.id.notes_list);
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL));
 
@@ -61,9 +62,13 @@ public class MainFragment extends Fragment {
                 Log.d("MainActivity", "Status Code = " + response.code());
                 if (response.isSuccess()) {
                     Message result = response.body();
-                    Gson gson=new Gson();
-                    Type type = new TypeToken<Proyecto[]>() {}.getType();
-                    proyectos= gson.fromJson(result.getMessage(), type);
+//                    Gson gson = new Gson();
+//                    Type type = new TypeToken<Proyecto[]>() {
+//                    }.getType();
+//                    System.out.println(result.getMessage());
+//                    proyectos = gson.fromJson(result.getMessage(), type);
+                    proyectos = result.getMessage();
+                    recyclerView.setAdapter(new ProjectAdapter(getActivity(), proyectos));
                     Log.d("MainActivity", "response = " + new Gson().toJson(result));
                 } else {
                     Log.e("MainFragment", "Se ha producido un error");
@@ -72,11 +77,14 @@ public class MainFragment extends Fragment {
 
             @Override
             public void onFailure(Throwable t) {
-                Log.e("MainFragment", "Se ha producido un error: "+t.getMessage());
+                t.printStackTrace();
+                Log.e("MainFragment", "Se ha producido un error: " + t.toString());
+                dialog.dismiss();
             }
         });
 
-        recyclerView.setAdapter(new ProjectAdapter(getActivity(), 30));
+
+//        recyclerView.setAdapter(new ProjectAdapter(getActivity(), 30));
 
 
 
@@ -85,5 +93,14 @@ public class MainFragment extends Fragment {
 //        return inflater.inflate(R.layout.fragment_blank, container, false);
     }
 
+
+    public class LoadProjectsThread extends AsyncTask<Void,Void,Void>{
+
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            return null;
+        }
+    }
 
 }

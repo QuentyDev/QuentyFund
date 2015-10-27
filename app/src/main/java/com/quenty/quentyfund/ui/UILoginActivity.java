@@ -43,7 +43,9 @@ import com.quenty.quentyfund.entity.User;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 public class UILoginActivity extends AppCompatActivity implements
@@ -88,8 +90,16 @@ public class UILoginActivity extends AppCompatActivity implements
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
 
-        loginButton.setReadPermissions("public_profile, email, user_birthday, user_friends");
         callbackManager = CallbackManager.Factory.create();
+        List<String> permissions = new ArrayList<String>();
+        permissions.add("public_profile");
+        permissions.add("email");
+        permissions.add("user_birthday");
+        permissions.add("user_friends");
+//        loginButton.setPublishPermissions(permissions);
+        loginButton.setReadPermissions(permissions);
+
+
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -102,15 +112,19 @@ public class UILoginActivity extends AppCompatActivity implements
 
                             String id = object.getString("id");
                             String personName = object.getString("name");
-                            System.out.println(personName + "AQUI entro");
-//                            User user = new User();
+//                            String email=object.getString("email");
+                            System.out.println(personName + "AQUI entro "+object.toString());
+
+                            User user = new User();
+                            user.setSocialId(id);
+                            user.setFirstName(personName);
 //                            user.setId(0L);
 //                            user.setGcm_id(id);
 //                            user.setNroTelefono(mPhoneNumber);
 //                            user.setNombres(personName);
 //                            user.setId_facebook(id);
-//                            BLLUser bllUser = new BLLUser(getBaseContext());
-//                            bllUser.insert(newProfile.getFirstName(), newProfile.getLastName(), newProfile.getId());
+                            BLLUser bllUser = new BLLUser(getBaseContext());
+                            bllUser.insert(user.getFirstName(), user.getLastName(), user.getSocialId());
                             startActivity(new Intent(UILoginActivity.this, UIWelcomeActivity.class));
                             UILoginActivity.this.finish();
 
