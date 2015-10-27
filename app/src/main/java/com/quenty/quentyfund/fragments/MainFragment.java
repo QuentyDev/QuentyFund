@@ -77,8 +77,6 @@ public class MainFragment extends Fragment {
 //        recyclerView.setAdapter(new ProjectAdapter(getActivity(), 30));
         recyclerView.setAdapter(new ProjectAdapter(getActivity(), proyectos));
 
-
-
         return view;
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_blank, container, false);
