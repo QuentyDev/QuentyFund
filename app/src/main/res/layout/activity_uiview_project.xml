@@ -113,8 +113,7 @@
                     android:id="@+id/name"
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_horizontal"
-                    android:paddingLeft="10dp"
+                    android:gravity="center"
                     android:text="CONTRIBUIR"
                     android:textAlignment="center"
                     android:textColor="@color/text_white_87"
@@ -123,8 +122,8 @@
 
                 <ImageButton
                     android:id="@+id/follow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
                     android:adjustViewBounds="true"
                     android:background="@null"
                     android:gravity="center_vertical|right"
