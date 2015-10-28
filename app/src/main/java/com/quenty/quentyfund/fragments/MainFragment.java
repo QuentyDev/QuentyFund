@@ -102,6 +102,7 @@ public class MainFragment extends Fragment {
                 proyectos=message.getMessage();
 //                proyectos = gson.fromJson(test, type);
 //            proyectos = result.getMessage();
+
                 recyclerView.setAdapter(new ProjectAdapter(getActivity(), proyectos));
                 Log.e("MainFragment", "Se ha producido un error: " + t.toString());
                 dialog.dismiss();

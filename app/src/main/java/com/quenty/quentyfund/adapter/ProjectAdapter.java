@@ -17,6 +17,7 @@ import com.quenty.quentyfund.R;
 import com.quenty.quentyfund.entity.Proyecto;
 import com.quenty.quentyfund.ui.UIDetalleProyectoActivity;
 import com.quenty.quentyfund.ui.UIViewProjectActivity;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by DavorLimachi on 10/21/15.
@@ -63,7 +64,9 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
         holder.categoriaTextView.setText(proyectoModel.getCategoria());
 
         // Set image
-        holder.infoImageView.setImageResource(R.drawable.ic_quenty);
+//        holder.infoImageView.setImageResource(R.drawable.ic_quenty);
+        String aux = "http://192.168.1.123:8086/hwslim/projects_files/images/" + proyectoModel.getUrlImage();
+        Picasso.with(context).load(aux).into(holder.infoImageView);
 
         // Set visibilities
         holder.titleTextView.setVisibility(TextUtils.isEmpty(nombre) ? View.GONE : View.VISIBLE);
@@ -84,8 +87,8 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
             public void onClick(View v) {
                 System.out.println("Click" + nombre);
                 Intent intent = new Intent(context, UIViewProjectActivity.class);
-                Gson gson=new Gson();
-                intent.putExtra("project",gson.toJson(proyectoModel));
+                Gson gson = new Gson();
+                intent.putExtra("project", gson.toJson(proyectoModel));
                 context.startActivity(intent);
             }
         });
